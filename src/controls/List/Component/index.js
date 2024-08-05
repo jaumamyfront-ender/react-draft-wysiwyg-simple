@@ -1,13 +1,13 @@
 /* @flow */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import { getFirstIcon } from '../../../utils/toolbar';
-import { Dropdown, DropdownOption } from '../../../components/Dropdown';
-import Option from '../../../components/Option';
-import './styles.css';
+import { getFirstIcon } from "../../../utils/toolbar";
+import { Dropdown, DropdownOption } from "../../../components/Dropdown";
+import Option from "../../../components/Option";
+import "./styles.css";
 
 export default class LayoutComponent extends Component {
   static propTypes = {
@@ -23,7 +23,7 @@ export default class LayoutComponent extends Component {
     outdentDisabled: PropTypes.bool,
   };
 
-  options: Array = ['unordered', 'ordered', 'indent', 'outdent'];
+  options: Array = ["unordered", "ordered", "indent", "outdent"];
 
   toggleBlockType: Function = (blockType: String): void => {
     const { onChange } = this.props;
@@ -32,12 +32,12 @@ export default class LayoutComponent extends Component {
 
   indent: Function = (): void => {
     const { onChange } = this.props;
-    onChange('indent');
+    onChange("indent");
   };
 
   outdent: Function = (): void => {
     const { onChange } = this.props;
-    onChange('outdent');
+    onChange("outdent");
   };
 
   // todo: evaluate refactoring this code to put a loop there and in other places also in code
@@ -48,57 +48,69 @@ export default class LayoutComponent extends Component {
       currentState: { listType },
       translations,
       indentDisabled,
-      outdentDisabled
+      outdentDisabled,
     } = this.props;
     const { options, unordered, ordered, indent, outdent, className } = config;
     return (
-      <div className={classNames('rdw-list-wrapper', className)} aria-label="rdw-list-control">
-        {options.indexOf('unordered') >= 0 && <Option
-          value="unordered"
-          onClick={this.toggleBlockType}
-          className={classNames(unordered.className)}
-          active={listType === 'unordered'}
-          title={unordered.title || translations['components.controls.list.unordered']}
-        >
-          <img
-            src={unordered.icon}
-            alt=""
-          />
-        </Option>}
-        {options.indexOf('ordered') >= 0 && <Option
-          value="ordered"
-          onClick={this.toggleBlockType}
-          className={classNames(ordered.className)}
-          active={listType === 'ordered'}
-          title={ordered.title || translations['components.controls.list.ordered']}
-        >
-          <img
-            src={ordered.icon}
-            alt=""
-          />
-        </Option>}
-        {options.indexOf('indent') >= 0 && <Option
-          onClick={this.indent}
-          disabled={indentDisabled}
-          className={classNames(indent.className)}
-          title={indent.title || translations['components.controls.list.indent']}
-        >
-          <img
-            src={indent.icon}
-            alt=""
-          />
-        </Option>}
-        {options.indexOf('outdent') >= 0 && <Option
-          onClick={this.outdent}
-          disabled={outdentDisabled}
-          className={classNames(outdent.className)}
-          title={outdent.title || translations['components.controls.list.outdent']}
-        >
-          <img
-            src={outdent.icon}
-            alt=""
-          />
-        </Option>}
+      <div
+        className={classNames("rdw-list-wrapper", className)}
+        aria-label="rdw-list-control"
+      >
+        {options.indexOf("unordered") >= 0 && (
+          <Option
+            value="unordered"
+            onClick={this.toggleBlockType}
+            className={classNames(unordered.className)}
+            active={listType === "unordered"}
+            title={
+              unordered.title ||
+              translations["components.controls.list.unordered"]
+            }
+            additionalImages={unordered.iconOnClick}
+          >
+            <img src={unordered.icon} alt="" />
+          </Option>
+        )}
+        {options.indexOf("ordered") >= 0 && (
+          <Option
+            value="ordered"
+            onClick={this.toggleBlockType}
+            className={classNames(ordered.className)}
+            active={listType === "ordered"}
+            title={
+              ordered.title || translations["components.controls.list.ordered"]
+            }
+            additionalImages={ordered.iconOnClick}
+          >
+            <img src={ordered.icon} alt="" />
+          </Option>
+        )}
+        {options.indexOf("indent") >= 0 && (
+          <Option
+            onClick={this.indent}
+            disabled={indentDisabled}
+            className={classNames(indent.className)}
+            title={
+              indent.title || translations["components.controls.list.indent"]
+            }
+            additionalImages={indent.iconOnClick}
+          >
+            <img src={indent.icon} alt="" />
+          </Option>
+        )}
+        {options.indexOf("outdent") >= 0 && (
+          <Option
+            onClick={this.outdent}
+            disabled={outdentDisabled}
+            className={classNames(outdent.className)}
+            title={
+              outdent.title || translations["components.controls.list.outdent"]
+            }
+            additionalImages={outdent.iconOnClick}
+          >
+            <img src={outdent.icon} alt="" />
+          </Option>
+        )}
       </div>
     );
   }
@@ -117,7 +129,7 @@ export default class LayoutComponent extends Component {
     const { options, className, dropdownClassName, title } = config;
     return (
       <Dropdown
-        className={classNames('rdw-list-dropdown', className)}
+        className={classNames("rdw-list-dropdown", className)}
         optionWrapperClassName={classNames(dropdownClassName)}
         onChange={onChange}
         expanded={expanded}
@@ -125,34 +137,37 @@ export default class LayoutComponent extends Component {
         doCollapse={doCollapse}
         onExpandEvent={onExpandEvent}
         aria-label="rdw-list-control"
-        title={title || translations['components.controls.list.list']}
+        title={title || translations["components.controls.list.list"]}
       >
-        <img
-          src={getFirstIcon(config)}
-          alt=""
-        />
-        { this.options
-          .filter(option => options.indexOf(option) >= 0)
-          .map((option, index) => (<DropdownOption
-            key={index}
-            value={option}
-            disabled={this.props[`${option}Disabled`]}
-            className={classNames('rdw-list-dropdownOption', config[option].className)}
-            active={listType === option}
-            title={config[option].title || translations[`components.controls.list.${option}`]}
-          >
-            <img
-              src={config[option].icon}
-              alt=""
-            />
-          </DropdownOption>))
-        }
+        <img src={getFirstIcon(config)} alt="" />
+        {this.options
+          .filter((option) => options.indexOf(option) >= 0)
+          .map((option, index) => (
+            <DropdownOption
+              key={index}
+              value={option}
+              disabled={this.props[`${option}Disabled`]}
+              className={classNames(
+                "rdw-list-dropdownOption",
+                config[option].className
+              )}
+              active={listType === option}
+              title={
+                config[option].title ||
+                translations[`components.controls.list.${option}`]
+              }
+            >
+              <img src={config[option].icon} alt="" />
+            </DropdownOption>
+          ))}
       </Dropdown>
     );
   }
 
   render(): Object {
-    const { config: { inDropdown } } = this.props;
+    const {
+      config: { inDropdown },
+    } = this.props;
     if (inDropdown) {
       return this.renderInDropDown();
     }

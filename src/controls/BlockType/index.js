@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { getSelectedBlocksType } from 'draftjs-utils';
-import { RichUtils } from 'draft-js';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { getSelectedBlocksType } from "draftjs-utils";
+import { RichUtils } from "draft-js";
 
-import LayoutComponent from './Component';
+import LayoutComponent from "./Component";
 
 class BlockType extends Component {
   static propTypes = {
@@ -21,7 +21,7 @@ class BlockType extends Component {
       expanded: false,
       currentBlockType: editorState
         ? getSelectedBlocksType(editorState)
-        : 'unstyled',
+        : "unstyled",
     };
     modalHandler.registerCallBack(this.expandCollapse);
   }
@@ -52,15 +52,15 @@ class BlockType extends Component {
   };
 
   blocksTypes = [
-    { label: 'Normal', style: 'unstyled' },
-    { label: 'H1', style: 'header-one' },
-    { label: 'H2', style: 'header-two' },
-    { label: 'H3', style: 'header-three' },
-    { label: 'H4', style: 'header-four' },
-    { label: 'H5', style: 'header-five' },
-    { label: 'H6', style: 'header-six' },
-    { label: 'Blockquote', style: 'blockquote' },
-    { label: 'Code', style: 'code' },
+    { label: "Normal", style: "unstyled" },
+    { label: "H1", style: "header-one" },
+    { label: "H2", style: "header-two" },
+    { label: "H3", style: "header-three" },
+    { label: "H4", style: "header-four" },
+    { label: "H5", style: "header-five" },
+    { label: "H6", style: "header-six" },
+    { label: "Blockquote", style: "blockquote" },
+    { label: "Code", style: "code" },
   ];
 
   doExpand = () => {
@@ -75,9 +75,10 @@ class BlockType extends Component {
     });
   };
 
-  toggleBlockType = blockType => {
-    const blockTypeValue = this.blocksTypes.find(bt => bt.label === blockType)
-      .style;
+  toggleBlockType = (blockType) => {
+    const blockTypeValue = this.blocksTypes.find(
+      (bt) => bt.label === blockType
+    ).style;
     const { editorState, onChange } = this.props;
     const newState = RichUtils.toggleBlockType(editorState, blockTypeValue);
     if (newState) {
@@ -90,8 +91,9 @@ class BlockType extends Component {
     const { expanded, currentBlockType } = this.state;
     const BlockTypeComponent = config.component || LayoutComponent;
     const blockType = this.blocksTypes.find(
-      bt => bt.style === currentBlockType
+      (bt) => bt.style === currentBlockType
     );
+
     return (
       <BlockTypeComponent
         config={config}
@@ -102,6 +104,7 @@ class BlockType extends Component {
         onExpandEvent={this.onExpandEvent}
         doExpand={this.doExpand}
         doCollapse={this.doCollapse}
+        images={config.styleImagesWhenDropDownIsFalse}
       />
     );
   }

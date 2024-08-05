@@ -25,5 +25,5 @@ export default {
   emoji,
   image,
   remove,
-  history
+  history,
 };

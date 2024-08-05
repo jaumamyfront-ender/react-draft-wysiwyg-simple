@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { getSelectionInlineStyle } from 'draftjs-utils';
-import { RichUtils, EditorState, Modifier } from 'draft-js';
-import { forEach } from '../../utils/common';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { getSelectionInlineStyle } from "draftjs-utils";
+import { RichUtils, EditorState, Modifier } from "draft-js";
+import { forEach } from "../../utils/common";
 
-import LayoutComponent from './Component';
+import LayoutComponent from "./Component";
 
 export default class Inline extends Component {
   static propTypes = {
@@ -51,12 +51,12 @@ export default class Inline extends Component {
     this.signalExpanded = false;
   };
 
-  toggleInlineStyle = style => {
-    const newStyle = style === 'monospace' ? 'CODE' : style.toUpperCase();
+  toggleInlineStyle = (style) => {
+    const newStyle = style === "monospace" ? "CODE" : style.toUpperCase();
     const { editorState, onChange } = this.props;
     let newState = RichUtils.toggleInlineStyle(editorState, newStyle);
-    if (style === 'subscript' || style === 'superscript') {
-      const removeStyle = style === 'subscript' ? 'SUPERSCRIPT' : 'SUBSCRIPT';
+    if (style === "subscript" || style === "superscript") {
+      const removeStyle = style === "subscript" ? "SUPERSCRIPT" : "SUBSCRIPT";
       const contentState = Modifier.removeInlineStyle(
         newState.getCurrentContent(),
         newState.getSelection(),
@@ -65,7 +65,7 @@ export default class Inline extends Component {
       newState = EditorState.push(
         newState,
         contentState,
-        'change-inline-style'
+        "change-inline-style"
       );
     }
     if (newState) {
@@ -73,11 +73,11 @@ export default class Inline extends Component {
     }
   };
 
-  changeKeys = style => {
+  changeKeys = (style) => {
     if (style) {
       const st = {};
       forEach(style, (key, value) => {
-        st[key === 'CODE' ? 'monospace' : key.toLowerCase()] = value;
+        st[key === "CODE" ? "monospace" : key.toLowerCase()] = value;
       });
       return st;
     }
