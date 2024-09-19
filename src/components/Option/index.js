@@ -29,8 +29,7 @@ export default class Option extends Component {
     const { disabled, onClick, value, additionalImages } = this.props;
     if (!disabled) {
       onClick(value);
-      console.log(value);
-      console.log(additionalImages);
+
       this.setState((prevState) => ({
         replacedImageIndex:
           prevState.replacedImageIndex === index ? null : index,
@@ -56,7 +55,6 @@ export default class Option extends Component {
         isReplaced && additionalImages.length > 0
           ? additionalImages[0]
           : child.props.src;
-      console.log(imageSrc);
 
       return (
         <div onClick={() => this.onClick(index)} key={index}>

@@ -6,7 +6,7 @@
 .rdw-editor-toolbar {
   padding: 6px 5px 0;
   border-radius: 2px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #f1f1f1;
   display: flex;
   justify-content: flex-start;
   background: white;
@@ -32,4 +32,13 @@
   background: #f1f1f1;
   border-radius: 3px;
   padding: 1px 10px;
+}
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .rdw-text-align-wrapper {
+    order: 1;
+  }
+  .rdw-list-wrapper {
+    order: 2;
+    margin-right: 1rem;
+  }
 }
