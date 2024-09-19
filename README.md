@@ -2,9 +2,8 @@
 
 # this is modyfied version of original library react draft wysywig.(Author Jota Puri),author of modification:yaumamyfront-ender==>
 
-# how it work on practice film --> https://drive.google.com/file/d/1yPb3fAGu9GFdcP-PDR_MEU6G3U-GICfw/view?usp=sharing
-
-- =================================================================================================================================================
+- how it work on practice film --> https://drive.google.com/file/d/1yPb3fAGu9GFdcP-PDR_MEU6G3U-GICfw/view?usp=sharing
+- =====================================================
 - added function when you can change icon in option(buttons in toolbar)and they work like button on/off
 - how to use this feature?
 - 1.read original documentation how to use tooolbar options/toolbar property/ in original documentation
@@ -18,7 +17,7 @@
   in development
 - easy function to get all generated html from editor and send this to server(like in next.js)==>in development(in folder temp you can get this if you wanna implement this now but unfortanately i dont do this at the time)
 - all function in tolbar easy switch
-- ==================================================================================================================================================
+- =====================================================
 
 # this is original description of original project below down==>
 
