@@ -1,3 +1,20 @@
+this is modyfied version of original library react draft wysywig.(Author Jota Puri),author of modification:yaumamyfront-ender==>
+added function when you can change icon in option(buttons in toolbar)and they work like button on/off
+how to use this feature?
+1.read original documentation how to use tooolbar options/toolbar property/ in original documentation
+
+2.copy newArrayOfDependencies(toolbarOptions) from txt file and put htem to your new toolbaroptions file in your projects(you find info in origin documentation)
+
+3.copy css from css-to-add and put to your new css file and link them to library(you find info in origin documentation)
+
+3.find iconOnClick(toolbarOptions) in array and then add your icon
+use it :-
+\*\*\*\*in development
+easy function to get all generated html from editor and send this to server(like in next.js)==>in development(in folder temp you can get this if you wanna implement this now but unfortanately i dont do this at the time)
+all function in tolbar easy switch
+===================================================================================================================================================================================================
+#this is original description of original project below down==>
+
 # React Draft Wysiwyg
 
 A Wysiwyg editor built using ReactJS and DraftJS libraries.
