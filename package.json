@@ -7,6 +7,12 @@
     "type": "git",
     "url": "https://github.com/jpuri/react-draft-wysiwyg.git"
   },
+  "modyfiedForkRepository": {
+    "type": "git",
+    "url": "https://github.com/jaumamyfront-ender/react-draft-wysiwyg-simple",
+    "author": "yaumamyfront-ender",
+    "description": "extended editor,simple,useful,no pain,no gain,just use it:)"
+  },
   "author": "Jyoti Puri",
   "devDependencies": {
     "@babel/core": "^7.22.5",
