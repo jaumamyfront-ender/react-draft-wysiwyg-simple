@@ -84,6 +84,7 @@ export default class TextAlign extends Component {
         doCollapse={this.doCollapse}
         currentState={{ textAlignment: currentTextAlignment }}
         onChange={this.addBlockAlignmentData}
+        
       />
     );
   }

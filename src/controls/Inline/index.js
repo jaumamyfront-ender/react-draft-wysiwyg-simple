@@ -26,14 +26,14 @@ export default class Inline extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentDidUpdate(prevProps) {
-    const { editorState } = this.props;
-    if (editorState && editorState !== prevProps.editorState) {
-      this.setState({
-        currentStyles: this.changeKeys(getSelectionInlineStyle(editorState)),
-      });
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   const { editorState } = this.props;
+  //   if (editorState && editorState !== prevProps.editorState) {
+  //     this.setState({
+  //       currentStyles: this.changeKeys(getSelectionInlineStyle(editorState)),
+  //     });
+  //   }
+  // }
 
   componentWillUnmount() {
     const { modalHandler } = this.props;

@@ -1,23 +1,19 @@
 # React Draft Wysiwyg Simple
-
 # this is modyfied version of original library react draft wysywig.(Author Jota Puri),author of modification:yaumamyfront-ender==>
-
-- how it work on practice film --> https://drive.google.com/file/d/1yPb3fAGu9GFdcP-PDR_MEU6G3U-GICfw/view?usp=sharing
-- =====================================================
-- added function when you can change icon in option(buttons in toolbar)and they work like button on/off
+# how it work on practice film --> https://drive.google.com/file/d/1yPb3fAGu9GFdcP-PDR_MEU6G3U-GICfw/view?usp=sharing
+## new Features
+- 1.added function when you can change icon in option(buttons in toolbar)and they work like button on/off
 - how to use this feature?
-- 1.read original documentation how to use tooolbar options/toolbar property/ in original documentation
+- 1.1just type switchToSimpleToolbar in ExtendedEditiorTag and switch to true
+   ********
+- 2. added an example of how to extract data if you just need to send it and display it on a page, as well as accept data that has already been sent and then be able to edit it
+- how to use this feature?
+- 2.2 just find folder exampleData in library and copy code from file getData
+ # fixes:
+  - fix style inheritance when click enter in input editor [h1,h2,text alighment]
+  - fix toolbar ealy click
+  - fix scroll in input
 
-- 2.copy newArrayOfDependencies(toolbarOptions) from txt file and put htem to your new toolbaroptions file in your projects(you find info in origin documentation)
-
-- 3.copy css from css-to-add and put to your new css file and link them to library(you find info in origin documentation)
-
-- 3.find iconOnClick(toolbarOptions) in array and then add your icon
-  ***
-  in development
-- easy function to get all generated html from editor and send this to server(like in next.js)==>in development(in folder temp you can get this if you wanna implement this now but unfortanately i dont do this at the time)
-- all function in tolbar easy switch
-- =====================================================
 
 # this is original description of original project below down==>
 
