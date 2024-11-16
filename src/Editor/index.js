@@ -32,14 +32,26 @@ import getMentionDecorators from "../decorators/Mention";
 import getHashtagDecorator from "../decorators/HashTag";
 import getBlockRenderFunc from "../renderer";
 import defaultToolbar from "../config/defaultToolbar";
+import {toolbarOptions} from "../config/customToolbar";
 import localeTranslations from "../i18n";
 import "./styles.css";
 import "../../css/Draft.css";
+import css from "../config/customToolbarStyles.module.css";
 
 class WysiwygEditor extends Component {
   constructor(props) {
     super(props);
-    const toolbar = mergeRecursive(defaultToolbar, props.toolbar);
+
+    const toolbar = mergeRecursive(defaultToolbar, toolbar);
+        const toolbarCustom = mergeRecursive(defaultToolbar, toolbarOptions);
+
+  
+    // const t = true
+    // console.log(this.props.switchToSimpleToolbar)
+    // if (this.props.switchToSimpleToolbar || t) {
+    //   const toolbar = mergeRecursive(defaultToolbar, toolbarOptions);
+  
+    // }
     const wrapperId = props.wrapperId
       ? props.wrapperId
       : Math.floor(Math.random() * 10000);
@@ -63,12 +75,14 @@ class WysiwygEditor extends Component {
     this.state = {
       editorState,
       editorFocused: false,
-      toolbar,
+      toolbar: this.props.switchToSimpleToolbar ? toolbarCustom : toolbar 
     };
   }
 
   componentDidMount() {
     this.modalHandler.init(this.wrapperId);
+    console.log(this.props.switchToSimpleToolbar)
+
   }
   // todo: change decorators depending on properties recceived in componentWillReceiveProps.
 
@@ -76,10 +90,16 @@ class WysiwygEditor extends Component {
     if (prevProps === this.props) return;
     const newState = {};
     const { editorState, contentState } = this.props;
+  
+
     if (!this.state.toolbar) {
       const toolbar = mergeRecursive(defaultToolbar, toolbar);
       newState.toolbar = toolbar;
     }
+ 
+
+
+ 
     if (
       hasProperty(this.props, "editorState") &&
       editorState !== prevProps.editorState
@@ -424,8 +444,11 @@ class WysiwygEditor extends Component {
       wrapperStyle,
       uploadCallback,
       ariaLabel,
+      switchToSimpleToolbar,
     } = this.props;
-
+    // wrapperClassName={css.wrapper}
+    // toolbarClassName={css.wrapperToolbar}
+    // editorClassName={css.wrapperEditor}
     const controlProps = {
       modalHandler: this.modalHandler,
       editorState,
@@ -435,12 +458,13 @@ class WysiwygEditor extends Component {
         ...translations,
       },
     };
+    console.log(css.wrapperEditor)
     const toolbarShow =
       editorFocused || this.focusHandler.isInputFocused() || !toolbarOnFocus;
     return (
       <div
         id={this.wrapperId}
-        className={classNames(wrapperClassName, "rdw-editor-wrapper")}
+        className={classNames(this.props.switchToSimpleToolbar ? css.wrapper :  wrapperClassName, "rdw-editor-wrapper")}
         style={wrapperStyle}
         onClick={this.modalHandler.onEditorClick}
         onBlur={this.onWrapperBlur}
@@ -448,10 +472,13 @@ class WysiwygEditor extends Component {
       >
         {!toolbarHidden && (
           <div
-            className={classNames("rdw-editor-toolbar", toolbarClassName)}
+            className={classNames(this.props.switchToSimpleToolbar ? "wrapperToolbar" : toolbarClassName,"rdw-editor-toolbar",)}
             style={{
               visibility: toolbarShow ? "visible" : "hidden",
+              
+              
               ...toolbarStyle,
+             
             }}
             onMouseDown={this.preventDefault}
             aria-label="rdw-toolbar"
@@ -474,7 +501,7 @@ class WysiwygEditor extends Component {
         )}
         <div
           ref={this.setWrapperReference}
-          className={classNames(editorClassName, "rdw-editor-main")}
+          className={classNames(this.props.switchToSimpleToolbar ? "wrapperEditor" :  editorClassName, "rdw-editor-main")}
           style={editorStyle}
           onClick={this.focusEditor}
           onFocus={this.onEditorFocus}
@@ -549,11 +576,13 @@ WysiwygEditor.propTypes = {
   customDecorators: PropTypes.array,
   editorRef: PropTypes.func,
   handlePastedText: PropTypes.func,
+  switchToSimpleToolbar:PropTypes.bool
 };
 
 WysiwygEditor.defaultProps = {
   toolbarOnFocus: false,
   toolbarHidden: false,
+  switchToSimpleToolbar:true,
   stripPastedStyles: false,
   localization: { locale: "en", translations: {} },
   customDecorators: [],

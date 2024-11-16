@@ -1,0 +1,58 @@
+
+
+/* styles of elements */
+
+.iconB,
+.Iconi,
+.iconU,
+.iconDots,
+.iconNumber,
+.textAlignLeft,
+.textAlignCenter,
+.textAlignRight {
+  background-color: transparent;
+  box-shadow: none;
+  width: 50px;
+  height: 35px;
+  border: 0px solid #4b5563;
+}
+
+.iconB:hover,
+.IconI:hover,
+.iconU:hover,
+.iconDots:hover,
+.iconNumber:hover,
+.textAlignLeft:hover,
+.textAlignCenter:hover,
+.textAlignRight:hover {
+  box-shadow: none;
+}
+.iconB:active,
+.IconI:active,
+.iconU:active,
+.iconDots:active,
+.iconNumber:active,
+.textAlignLeft:active,
+.textAlignCenter:active,
+.textAlignRight:active {
+  box-shadow: none;
+}
+
+/* special styles for h1 nad h2 elements becauze this elements wont be styled trough classic wrapper as you cenn se upper */
+.rdwlistwrapper {
+  background: transparent;
+  color: black;
+  box-shadow: none;
+  margin-right: 23px;
+}
+.rdwlistwrapper * {
+  color: inherit;
+  font-size: 25px;
+  color: white;
+  font-weight: 500;
+  background: inherit;
+  box-shadow: none;
+  border: 0px solid #4b5563;
+}
+
+

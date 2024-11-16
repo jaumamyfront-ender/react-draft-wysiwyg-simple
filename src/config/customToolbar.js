@@ -1,14 +1,46 @@
-import css from "./stylesModule/extendedArea.module.css";
+import css from "./customToolbarStyles.module.css";
+import bold from "../../images/customIcons/white/b.svg";
+import boldGreen from "../../images/customIcons/green/b.svg";
+import italic from "../../images/customIcons/white/i.svg";
+import italicGreen from "../../images/customIcons/green/i.svg";
 
-// /**
-//  * This is default toolbar configuration in comment section
-//  * below down is a modyfied version but you can on them if you want this
+import underline from "../../images/customIcons/white/u.svg";
+import underlineGreen from "../../images/customIcons/green/u.svg";
+
+
+import h1 from "../../images/customIcons/white/ho.png";
+import h1green from "../../images/customIcons/green/ho.png";
+import h2 from "../../images/customIcons/white/hs.png";
+import h2green from "../../images/customIcons/green/hs.png";
+
+
+
+import ordered from "../../images/customIcons/white/numbr.png";
+import orderedGreen from "../../images/customIcons/green/numbr.png";
+
+import unordered from"../../images/customIcons/white/dots.png";
+import unorderedGreen from "../../images/customIcons/green/dots.png";
+
+import left from "../../images/customIcons/white/left.png";
+import leftGreen from "../../images/customIcons/green/left.png";
+
+import center from "../../images/customIcons/white/center.png";
+import centerGreen from "../../images/customIcons/green/center.png";
+
+import right from "../../images/customIcons/white/right.png";
+import rightGreen from "../../images/customIcons/green/right.png";
+
+
+
+
+//  * This is default toolbar configuration,
 //  * whatever user passes in toolbar property is deeply merged with this to over-ride defaults.
-//  */
-//**************
-// // iconOnClick: [""],=======================================how to import images localy with using classic path
-// // iconOnClick: [`${bold}`],================================how to use import with using $imported image
-****************
+
+//how to import images for onClick func
+// iconOnClick: [""],=======================================how to import images localy with using classic path
+// iconOnClick: [`${bold}`],================================how to use import with using $imported image
+// iconOnClick: [boldGreen],================================in library(for devs)
+
 export const toolbarOptions = {
   options: ["inline", "blockType", "list", "textAlign"],
   // options: [=============================================/default options
@@ -41,20 +73,20 @@ export const toolbarOptions = {
       // "subscript",
     ],
     bold: {
-      icon: "/customIcons/white/b.svg",
-      iconOnClick: ["/customIcons/green/b.svg"],
+      icon: bold,
+      iconOnClick: [boldGreen],
       className: css.iconB,
       title: undefined,
     },
     italic: {
-      icon: "/customIcons/white/i.svg",
-      iconOnClick: ["/customIcons/green/i.svg"],
+      icon: italic,
+      iconOnClick: [italicGreen],
       className: css.Iconi,
       title: undefined,
     },
     underline: {
-      icon: "/customIcons/white/u.svg",
-      iconOnClick: ["/customIcons/green/u.svg"],
+      icon: underline,
+      iconOnClick: [underlineGreen],
       className: css.iconU,
       title: undefined,
     },
@@ -89,13 +121,13 @@ export const toolbarOptions = {
         label: "Normal",
       },
       H1: {
-        icon: ["/customIcons/white/ho.png"],
-        iconOnClick: ["/customIcons/green/ho.png"],
+        icon: h1,
+        iconOnClick: [h1],
         label: "H1",
       },
       H2: {
-        icon: "/customIcons/white/hs.png",
-        iconOnClick: ["/customIcons/green/hs.png"],
+        icon: h2,
+        iconOnClick: [h2green],
         label: "H2",
       },
       H3: {
@@ -163,14 +195,14 @@ export const toolbarOptions = {
     options: ["unordered", "ordered"],
     // options: ["unordered", "ordered", "indent", "outdent"],
     unordered: {
-      icon: "/customIcons/white/dots.png",
-      iconOnClick: ["/customIcons/green/dots.png"],
+      icon: unordered,
+      iconOnClick: [unorderedGreen],
       className: css.iconDots,
       title: undefined,
     },
     ordered: {
-      icon: "/customIcons/white/numbr.png",
-      iconOnClick: ["/customIcons/green/numbr.png"],
+      icon: ordered,
+      iconOnClick: [orderedGreen],
       className: css.iconNumber,
       title: undefined,
     },
@@ -196,20 +228,22 @@ export const toolbarOptions = {
     options: ["left", "center", "right"],
     // options: ["left", "center", "right", "justify"],
     left: {
-      icon: "/customIcons/white/left.png",
-      iconOnClick: ["/customIcons/green/left.png"],
+      icon:left,
+      iconOnClick: [
+        leftGreen
+      ],
       className: css.textAlignLeft,
       title: undefined,
     },
     center: {
-      icon: "/customIcons/white/center.png",
-      iconOnClick: ["/customIcons/green/center.png"],
+      icon: center,
+      iconOnClick: [centerGreen],
       className: css.textAlignCenter,
       title: undefined,
     },
     right: {
-      icon: "/customIcons/white/right.png",
-      iconOnClick: ["/customIcons/green/right.png"],
+      icon: right,
+      iconOnClick: [rightGreen],
       className: css.textAlignRight,
       title: undefined,
     },
